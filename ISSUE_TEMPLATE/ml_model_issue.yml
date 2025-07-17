@@ -1,0 +1,77 @@
+name: ML Model Issue
+description: Report ML model issues
+title: "[ML] "
+labels: ["ml"]
+assignees: ["@echo-org/ml-team"]
+
+body:
+  - type: dropdown
+    id: model_type
+    attributes:
+      label: Model
+      options:
+        - Ad Generation Model
+        - Context Analysis Model
+        - Recommendation Engine Model
+        - Fraud Detection Model
+        - Multiple Models
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_category
+    attributes:
+      label: Issue Type
+      options:
+        - Model Performance - Accuracy degraded
+        - Training Issues - Problems during training
+        - Deployment Issues - Problems deploying
+        - Data Quality - Training/inference data issues
+        - Inference Speed - Model serving performance
+        - Model Drift - Performance changing over time
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical - Model failing completely
+        - High - Significant performance drop
+        - Medium - Noticeable degradation
+        - Low - Minor performance issue
+    validations:
+      required: true
+
+  - type: input
+    id: model_version
+    attributes:
+      label: Model Version
+      placeholder: "v2.1.0 or model_abc123"
+
+  - type: textarea
+    id: current_metrics
+    attributes:
+      label: Current Performance
+      placeholder: |
+        - Accuracy: 85.2% (down from 89.1%)
+        - Latency: 150ms (up from 80ms)
+      render: yaml
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      placeholder: Describe the ML issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Reproduction Steps
+      placeholder: |
+        1. Load model version X
+        2. Run inference on dataset Y
+        3. Observe metric Z 

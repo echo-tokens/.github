@@ -1,0 +1,56 @@
+name: ML Operations
+
+on:
+  push:
+    branches: [main, develop]
+    paths: ['models/**', 'services/ml-*/**']
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        model: [ad-generation, context-analysis, recommendation]
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements-ml.txt
+      
+      - name: Train Model
+        run: |
+          python models/${{ matrix.model }}/train.py
+        env:
+          MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
+      
+      - name: Validate Model
+        run: |
+          python scripts/validate_model.py --model ${{ matrix.model }}
+
+  deploy-staging:
+    needs: train
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Models
+        run: |
+          python scripts/deploy_models.py --environment staging
+
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production-ml
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Models
+        run: |
+          python scripts/deploy_models.py --environment production 

@@ -1,0 +1,145 @@
+# Echo Token-Auction Ads - Code Ownership
+# These owners will be the default assignees for pull requests.
+# 
+# Global defaults
+* @echo-tokens/platform-team
+
+# Frontend Services
+/services/chat-interface/ @echo-tokens/frontend-team
+/services/advertiser-dashboard/ @echo-tokens/frontend-team
+/shared/ui/ @echo-tokens/frontend-team
+/packages/ui-components/ @echo-tokens/frontend-team
+
+# Core Backend Services  
+/services/conversation/ @echo-tokens/backend-team
+/services/ad-generation/ @echo-tokens/backend-team @echo-tokens/ml-team
+/services/auction-engine/ @echo-tokens/backend-team @echo-tokens/financial-team
+/services/context-analysis/ @echo-tokens/backend-team @echo-tokens/ml-team
+/services/authentication/ @echo-tokens/backend-team @echo-tokens/security-team
+/services/request-routing/ @echo-tokens/platform-team
+/services/rate-limiting/ @echo-tokens/platform-team @echo-tokens/security-team
+
+# Advertiser Management Services
+/services/ad-upload/ @echo-tokens/backend-team
+/services/web-scraping/ @echo-tokens/backend-team
+/services/google-ads-integration/ @echo-tokens/backend-team @echo-tokens/integrations-team
+/services/advertisement-storage/ @echo-tokens/backend-team @echo-tokens/platform-team
+
+# Financial Services - Require Financial Team approval
+/services/billing/ @echo-tokens/financial-team @echo-tokens/backend-team
+/services/revenue-tracking/ @echo-tokens/financial-team @echo-tokens/backend-team
+/services/user-rebate/ @echo-tokens/financial-team @echo-tokens/backend-team
+/services/settlement/ @echo-tokens/financial-team @echo-tokens/backend-team
+/services/financial-analytics/ @echo-tokens/financial-team @echo-tokens/backend-team
+
+# ML/AI Services
+/services/ml-pipeline/ @echo-tokens/ml-team @echo-tokens/platform-team
+/services/model-training/ @echo-tokens/ml-team
+/services/ai-content-generation/ @echo-tokens/ml-team @echo-tokens/backend-team
+/services/recommendation-engine/ @echo-tokens/ml-team @echo-tokens/backend-team
+/models/ @echo-tokens/ml-team
+/notebooks/ @echo-tokens/ml-team
+/data/ @echo-tokens/ml-team @echo-tokens/platform-team
+
+# Data & Infrastructure Services
+/services/event-bus/ @echo-tokens/platform-team @echo-tokens/backend-team
+/services/vector-database/ @echo-tokens/platform-team @echo-tokens/ml-team
+/services/caching/ @echo-tokens/platform-team @echo-tokens/backend-team
+/services/metrics-collection/ @echo-tokens/platform-team
+
+# Shadow Systems
+/services/shadow-auction/ @echo-tokens/financial-team @echo-tokens/ml-team
+/services/bid-collection/ @echo-tokens/financial-team @echo-tokens/backend-team
+
+# Infrastructure & DevOps
+/infrastructure/ @echo-tokens/platform-team
+/terraform/ @echo-tokens/platform-team
+/kubernetes/ @echo-tokens/platform-team
+/docker/ @echo-tokens/platform-team
+/.github/workflows/ @echo-tokens/platform-team
+/docker-compose*.yml @echo-tokens/platform-team
+/Dockerfile* @echo-tokens/platform-team
+
+# Security-sensitive files
+/security/ @echo-tokens/security-team
+*.security.yml @echo-tokens/security-team
+*.security.yaml @echo-tokens/security-team
+.env* @echo-tokens/security-team @echo-tokens/platform-team
+/secrets/ @echo-tokens/security-team
+/certs/ @echo-tokens/security-team
+
+# Configuration files
+/config/ @echo-tokens/platform-team
+*.config.js @echo-tokens/platform-team
+*.config.ts @echo-tokens/platform-team
+/environments/ @echo-tokens/platform-team
+
+# Database migrations
+**/migrations/ @echo-tokens/backend-team @echo-tokens/platform-team
+**/schemas/ @echo-tokens/backend-team @echo-tokens/platform-team
+
+# API Documentation
+/api/ @echo-tokens/backend-team
+/docs/api/ @echo-tokens/backend-team
+openapi.yaml @echo-tokens/backend-team
+swagger.yaml @echo-tokens/backend-team
+
+# Testing
+/tests/e2e/ @echo-tokens/frontend-team @echo-tokens/backend-team
+/tests/integration/ @echo-tokens/backend-team
+/tests/performance/ @echo-tokens/platform-team
+/tests/security/ @echo-tokens/security-team
+
+# Documentation
+/docs/ @echo-tokens/platform-team
+README.md @echo-tokens/platform-team
+CONTRIBUTING.md @echo-tokens/platform-team
+CHANGELOG.md @echo-tokens/platform-team
+
+# GitHub-specific files
+/.github/ @echo-tokens/platform-team
+/.github/workflows/ @echo-tokens/platform-team
+/.github/ISSUE_TEMPLATE/ @echo-tokens/platform-team
+/.github/SECURITY.md @echo-tokens/security-team
+
+# Package management
+package.json @echo-tokens/platform-team
+package-lock.json @echo-tokens/platform-team
+yarn.lock @echo-tokens/platform-team
+requirements.txt @echo-tokens/ml-team @echo-tokens/platform-team
+poetry.lock @echo-tokens/ml-team @echo-tokens/platform-team
+Pipfile @echo-tokens/ml-team @echo-tokens/platform-team
+
+# Build and deployment
+/build/ @echo-tokens/platform-team
+/dist/ @echo-tokens/platform-team
+/scripts/deploy/ @echo-tokens/platform-team
+/scripts/build/ @echo-tokens/platform-team
+
+# Monitoring and observability
+/monitoring/ @echo-tokens/platform-team
+/grafana/ @echo-tokens/platform-team
+/prometheus/ @echo-tokens/platform-team
+/alerts/ @echo-tokens/platform-team
+
+# Compliance and legal
+/compliance/ @echo-tokens/security-team @echo-tokens/financial-team
+/legal/ @echo-tokens/security-team
+/privacy/ @echo-tokens/security-team
+GDPR.md @echo-tokens/security-team
+PRIVACY.md @echo-tokens/security-team
+
+# Service-specific critical files
+/services/*/package.json @echo-tokens/platform-team
+/services/*/Dockerfile @echo-tokens/platform-team
+/services/*/requirements.txt @echo-tokens/platform-team
+
+# ML model artifacts and configs
+/models/*/model.pkl @echo-tokens/ml-team
+/models/*/config.yaml @echo-tokens/ml-team
+/models/*/requirements.txt @echo-tokens/ml-team
+
+# Financial compliance files
+/financial/ @echo-tokens/financial-team @echo-tokens/security-team
+/audit/ @echo-tokens/financial-team @echo-tokens/security-team
+/compliance/pci/ @echo-tokens/financial-team @echo-tokens/security-team 
